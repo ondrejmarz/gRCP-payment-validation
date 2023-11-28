@@ -4,6 +4,8 @@ package model;
 
 import "google/protobuf/empty.proto";
 
+option java_multiple_files = true;
+
 service PaymentService {
   rpc listPayments (google.protobuf.Empty) returns (PaymentList);
   rpc addPayment (Payment) returns (PaymentResponse);
