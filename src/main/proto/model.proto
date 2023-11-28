@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package model;
+
+import "google/protobuf/empty.proto";
+
+service PaymentService {
+  rpc listPayments (google.protobuf.Empty) returns (PaymentList);
+  rpc addPayment (Payment) returns (PaymentResponse);
+}
+
+message Payment {
+  string creditCardNumber = 1;
+  string creditCardOwner = 2;
+  string orderIdentifier = 3;
+}
+
+message PaymentResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message PaymentList {
+  repeated Payment payment = 1;
+}
